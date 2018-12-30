@@ -24,11 +24,19 @@ class App extends Component {
     let name = this.refs.name.value;
     let address = this.refs.address.value;
 
-    let data = {
-      name , address
+    if(this.state.act===0){     //new
+      let data = {
+        name , address
+      }
+      datas.push(data);
+      this.setState({datas:datas});
+    }else{                      //update
+      let index = this.state.index;
+      datas[index].name = name;
+      datas[index].address = address;
     }
-    datas.push(data);
-    this.setState({datas:datas});
+
+    this.setState({datas:datas,act:0});
 
     this.refs.myForm.reset();
     console.log(this.state.datas);
@@ -36,9 +44,15 @@ class App extends Component {
   }
   fRemove=(i)=>{
     let datas = this.state.datas;
-    datas.splice(i,1)
+    datas.splice(i,1);
+    this.setState({datas});
+    this.refs.myForm.reset();
   }
   fEdit=(i)=>{
+    let data = this.state.datas[i];
+    this.refs.name.value = data.name;
+    this.refs.address.value = data.address;
+    this.setState({act:1 , index:i});
 
   }
 
