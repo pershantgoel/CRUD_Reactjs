@@ -73,8 +73,8 @@ class App extends Component {
         {datas.map((data,i)=>
         <li key={i} className="myList">
           {i+1}.{data.name} , {data.address}
-          <button onClick={()=>this.fRemove(i)} className="myButton">remove</button>
-          <button onClick={()=>this.fEdit(i)} className="myButton">edit</button>        
+          <button onClick={()=>this.fRemove(i)} className="myListButton">remove</button>
+          <button onClick={()=>this.fEdit(i)} className="myListButton">edit</button>        
 
         </li>
         )}
