@@ -10,11 +10,6 @@ class App extends Component {
       index : "",
       datas : []
     }
-    this.fSubmit = this.fSubmit.bind(this);
-    this.fRemove = this.fRemove.bind(this);
-    this.fEdit = this.fEdit.bind(this);
-
-
   }
   
   fSubmit=(e)=>{
